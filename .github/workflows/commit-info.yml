@@ -1,0 +1,19 @@
+name: Commit Changes
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  commit-info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Show last commit info
+        run: |
+          echo "Last commit details:"
+          git log -1 --pretty=format:'%h %s (%an, %ar)'
