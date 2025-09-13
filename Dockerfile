@@ -10,15 +10,14 @@ RUN apt-get update && \
         openssh-client \
         bash \
         python3 \
-        python3-pip
+        python3-pip \
+		python3-virtualenv
 
 
 # Install Rust using rustup
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
 ENV PATH="/root/.cargo/bin:$PATH"
 
-# Install virtualenv
-RUN python3 -m pip install virtualenv
 
 WORKDIR /workspace
 
